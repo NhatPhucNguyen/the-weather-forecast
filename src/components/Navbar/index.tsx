@@ -70,7 +70,12 @@ const Navbar = () => {
                 >
                     <i className="fa-brands fa-github"></i>
                 </IconWrapper>
-                <IconWrapper as="a" title="Check the source code">
+                <IconWrapper
+                    as="a"
+                    title="Check the source code"
+                    href="https://github.com/NhatPhucNguyen/the-weather-forecast"
+                    target="_blank"
+                >
                     <i className="fa-solid fa-code"></i>
                 </IconWrapper>
             </End>
