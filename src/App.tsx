@@ -4,6 +4,7 @@ import SearchContainer from "./components/SearchContainer";
 import WeatherContainer from "./components/WeatherContainer";
 import { Options, PageContext } from "./context/PageContext";
 import AlertContainer from "./components/AlertContainer";
+import Footer from "./components/Footer";
 
 const APIKey = "70884ed83caf40b60f6c5c64af7271c2";
 
@@ -88,6 +89,7 @@ const App = () => {
             <Navbar />
             <SearchContainer />
             {showContent()}
+            <Footer />
         </PageContext.Provider>
     );
 };

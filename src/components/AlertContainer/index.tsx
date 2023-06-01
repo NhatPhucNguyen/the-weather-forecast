@@ -25,6 +25,7 @@ const AlertWrapper = styled.div`
     color: #ffffff;
     border-radius: 15px;
     animation: ${scaleUp} 0.6s ease-in-out, ${shake} 6s linear infinite;
+    
 `;
 
 const AlertContainer = (props: { message: string }) => {
