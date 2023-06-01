@@ -12,6 +12,10 @@ export const Container = styled.div`
     gap: 1em;
     color: #ffffff;
     animation: ${moveDown} 0.8s ease-in-out;
+    @media screen and (max-width:530px){
+        flex-direction: column;
+        gap: 0.5em;
+    }
 `;
 
 const SearchContainer = () => {

@@ -27,10 +27,13 @@ const CurrentWeatherItem = styled.div`
     display: grid;
     grid-template-columns: 50% 50%;
     background-color: #ffffff;
-    width: 23em;
+    width: 35em;
     border: #b4b4b4 3px solid;
     box-shadow: rgba(218, 218, 218, 0.35) 0px 5px 15px;
     animation: ${moveDown} 1s ease-in-out;
+    @media screen and (max-width:530px){
+        width: 23em;
+    }
 `;
 const GeneralInfoWrapper = styled.div<{ isDay: boolean }>`
     display: flex;
