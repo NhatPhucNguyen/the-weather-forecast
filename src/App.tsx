@@ -6,10 +6,11 @@ import { Options, PageContext } from "./context/PageContext";
 import AlertContainer from "./components/AlertContainer";
 import Footer from "./components/Footer";
 
-const APIKey = "70884ed83caf40b60f6c5c64af7271c2";
+export const APIKey = "70884ed83caf40b60f6c5c64af7271c2";
 
 export type CurrentWeather = {
     id: string;
+    coord: { lon: string; lat: string };
     name: string;
     main: {
         temp: string;
@@ -25,6 +26,8 @@ export type CurrentWeather = {
     sys: {
         country?: string;
     };
+    dt_txt: string;
+    list: CurrentWeather[];
 };
 const App = () => {
     const [currentWeather, setCurrentWeather] = useState({} as CurrentWeather);
@@ -85,7 +88,11 @@ const App = () => {
         }
     };
     return (
-        <PageContext.Provider value={{ getWeather }}>
+        <PageContext.Provider
+            value={{
+                getWeather,
+            }}
+        >
             <Navbar />
             <SearchContainer />
             {showContent()}

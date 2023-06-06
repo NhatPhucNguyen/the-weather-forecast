@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { PageContext } from "../../context/PageContext";
 import { useContext } from "react";
 
-const Button = styled.button`
+export const Button = styled.button`
     background-color: #e3cc00;
     font-size: inherit;
     font-weight: bold;

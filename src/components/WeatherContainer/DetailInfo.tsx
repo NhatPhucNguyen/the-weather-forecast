@@ -1,9 +1,25 @@
+import styled from "styled-components";
+import { GeneralInfoWrapper } from "./GeneralInfo";
 import { WeatherDetail } from "./index";
-import { Fragment } from "react";
+const DetailInfoWrapper = styled(GeneralInfoWrapper)`
+    background-color: ${(props) => (props.isDay ? "#ffffff" : "#222222")};
+    color: ${(props) => (props.isDay ? "#000000" : "#ffffff")};
+    font-size: 1em;
+    text-align: center;
+    font-size: 0.9em;
+    span {
+        width: 100%;
+        padding: 0.1em;
+        border-bottom: 1px solid gray;
+    }
+    span:last-child {
+        border-bottom: none;
+    }
+`;
 
-const DetailInfo = ({ weatherDetail }: { weatherDetail: WeatherDetail }) => {
+const DetailInfo = ({ weatherDetail,isDay }: { weatherDetail: WeatherDetail,isDay:boolean }) => {
     return (
-        <Fragment>
+        <DetailInfoWrapper isDay={isDay}>
             <span>Humidity: {weatherDetail.humidity}%</span>
             <span>
                 Wind speed: {(Number(weatherDetail.windSpeed) * 3.6).toFixed(1)}{" "}
@@ -18,7 +34,7 @@ const DetailInfo = ({ weatherDetail }: { weatherDetail: WeatherDetail }) => {
             <span>
                 Visibility: {Number(weatherDetail.visibility) / 1000} km
             </span>
-        </Fragment>
+        </DetailInfoWrapper>
     );
 };
 

@@ -37,6 +37,7 @@ export const WeatherConvert = (currentWeather: CurrentWeather): Weather => {
         country: getCountryName(currentWeather.sys.country),
         temp: Math.round(Number(currentWeather.main.temp)).toString(),
         condition: currentWeather.weather[0].main,
+        coord:{lat:currentWeather.coord.lat,long:currentWeather.coord.lon}
     };
     //get weather details for Detail Info component
     let weatherDetail: WeatherDetail = {
