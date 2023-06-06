@@ -25,6 +25,7 @@ const Container = styled.div`
     justify-content: center;
     align-items: center;
     gap: 1em;
+    animation: ${moveDown} 1s ease-in-out;
 `;
 
 const CurrentWeatherItem = styled.div`
@@ -34,7 +35,6 @@ const CurrentWeatherItem = styled.div`
     width: 35em;
     border: #b4b4b4 3px solid;
     box-shadow: rgba(218, 218, 218, 0.35) 0px 5px 15px;
-    animation: ${moveDown} 1s ease-in-out;
     @media screen and (max-width: 530px) {
         width: 23em;
     }
