@@ -26,7 +26,6 @@ const nightTimeCondition: { [key: string]: JSX.Element } = {
 };
 const showIcon = (condition: string, dateTime: string) => {
     const militaryTime = new Date(dateTime).getHours();
-    console.log(militaryTime);
     if (militaryTime > 19 || militaryTime < 5) {
         //night time icon
         return nightTimeCondition[condition];

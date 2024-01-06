@@ -113,8 +113,8 @@ const showPrediction = (predictionArray: Array<CurrentWeather>) => {
                     >
                         <DateInfo>{predictionItems[0].date}</DateInfo>
                         <WeatherListWrapper>
-                            {predictionItems.map((item) => {
-                                return <WeatherItem weather={item} />;
+                            {predictionItems.map((item,index) => {
+                                return <WeatherItem key={index} weather={item} />;
                             })}
                         </WeatherListWrapper>
                     </PredictionItem>
