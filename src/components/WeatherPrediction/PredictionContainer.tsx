@@ -40,15 +40,15 @@ const PredictionItem = styled.div<{ duration: number }>`
             return `${props.duration * 0.5}s`;
         }}
         ease-in-out;
-    h3 {
-        background-color: #beff95;
+    @media screen and (max-width: 425px) {
         width: 100%;
-        text-align: center;
-        padding: 0.3em 0;
     }
-    @media screen and (max-width:425px){
-        width:100%;
-    }
+`;
+const DateInfo = styled.h3`
+    background-color: #beff95;
+    width: 100%;
+    text-align: center;
+    padding: 0.3em 0;
 `;
 const WeatherListWrapper = styled(PredictionItemsContainer)`
     flex-direction: row;
@@ -111,7 +111,7 @@ const showPrediction = (predictionArray: Array<CurrentWeather>) => {
                         key={preConvertedArr.indexOf(predictionItems)}
                         duration={preConvertedArr.indexOf(predictionItems) + 1}
                     >
-                        <h3>{predictionItems[0].date}</h3>
+                        <DateInfo>{predictionItems[0].date}</DateInfo>
                         <WeatherListWrapper>
                             {predictionItems.map((item) => {
                                 return <WeatherItem weather={item} />;
