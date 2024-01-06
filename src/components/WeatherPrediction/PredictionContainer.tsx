@@ -35,14 +35,19 @@ const PredictionItem = styled.div<{ duration: number }>`
     gap: 1em;
     border: #b4b4b4 3px solid;
     box-shadow: rgba(218, 218, 218, 0.35) 0px 5px 15px;
-    animation: ${leftToRight} ${(props) => {
-        return `${props.duration * 0.5}s`;
-    }} ease-in-out;
+    animation: ${leftToRight}
+        ${(props) => {
+            return `${props.duration * 0.5}s`;
+        }}
+        ease-in-out;
     h3 {
         background-color: #beff95;
         width: 100%;
         text-align: center;
         padding: 0.3em 0;
+    }
+    @media screen and (max-width:425px){
+        width:100%;
     }
 `;
 const WeatherListWrapper = styled(PredictionItemsContainer)`
@@ -63,17 +68,17 @@ const convertToPrediction = (predictionArray: Array<CurrentWeather>) => {
     sortPreArray = [[], [], [], [], []];
     let index = 0;
     predictionArray.forEach((item) => {
-        let date = new Date(item.dt_txt).toLocaleDateString("en-US", {
+        const date = new Date(item.dt_txt).toLocaleDateString("en-US", {
             weekday: "long",
             day: "numeric",
             month: "short",
             year: "2-digit",
         });
-        let time = new Date(item.dt_txt).toLocaleTimeString("en-US", {
+        const time = new Date(item.dt_txt).toLocaleTimeString("en-US", {
             hour: "numeric",
             minute: "2-digit",
         });
-        let newItem: IPredictionWeather = {
+        const newItem: IPredictionWeather = {
             ...item,
             date: date,
             time: time,
@@ -124,14 +129,14 @@ const PredictionContainer = () => {
     const [predictionArray, setPredictionArray] =
         useState<Array<CurrentWeather>>();
     useEffect(() => {
-        let API = `https://api.openweathermap.org/data/2.5/forecast?lat=${weatherContext.coord.lat}&lon=${weatherContext.coord.long}&appid=${APIKey}&units=metric`;
+        const API = `https://api.openweathermap.org/data/2.5/forecast?lat=${weatherContext.coord.lat}&lon=${weatherContext.coord.long}&appid=${APIKey}&units=metric`;
         fetch(API)
             .then((res) => res.json())
             .then((data: CurrentWeather) => setPredictionArray(data.list));
     }, [weatherContext]);
     return (
         <Fragment>
-            {predictionArray !== undefined && showPrediction(predictionArray)}
+            {predictionArray && showPrediction(predictionArray)}
         </Fragment>
     );
 };

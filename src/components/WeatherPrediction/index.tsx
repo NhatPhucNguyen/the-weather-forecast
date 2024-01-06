@@ -8,6 +8,10 @@ const Container = styled.div`
     justify-content: center;
     align-items: center;
     gap: 1em;
+    padding:0 1rem;
+    @media screen and (max-width:425px){
+        width: 100%;
+    }
 `;
 
 const WeatherPrediction = () => {

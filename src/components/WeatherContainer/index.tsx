@@ -26,6 +26,7 @@ const Container = styled.div`
     align-items: center;
     gap: 1em;
     animation: ${moveDown} 1s ease-in-out;
+    width: 100%;
 `;
 
 const CurrentWeatherItem = styled.div`
@@ -35,8 +36,8 @@ const CurrentWeatherItem = styled.div`
     width: 35em;
     border: #b4b4b4 3px solid;
     box-shadow: rgba(218, 218, 218, 0.35) 0px 5px 15px;
-    @media screen and (max-width: 530px) {
-        width: 23em;
+    @media screen and (max-width: 567px) {
+        width: 100%;
     }
 `;
 const Loader = styled.div`
@@ -83,7 +84,7 @@ export type Weather = {
 
 //functions
 const isDayValid = (weather: Weather) => {
-    let militaryHour = new Date(weather.general.dateTime).getHours();
+    const militaryHour = new Date(weather.general.dateTime).getHours();
     if (militaryHour > 19 || militaryHour < 7) {
         return false;
     } else {

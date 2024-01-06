@@ -25,7 +25,7 @@ const nightTimeCondition: { [key: string]: JSX.Element } = {
     snow: <Lottie animationData={snowNight} />,
 };
 const showIcon = (condition: string, dateTime: string) => {
-    let militaryTime = new Date(dateTime).getHours();
+    const militaryTime = new Date(dateTime).getHours();
     console.log(militaryTime);
     if (militaryTime > 19 || militaryTime < 5) {
         //night time icon

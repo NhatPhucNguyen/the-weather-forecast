@@ -8,6 +8,9 @@ const SearchForm = styled.form`
     grid-template-columns: 80% 20%;
     background-color: #ffffff;
     border-radius: 50px;
+    @media screen and (max-width:425px){
+        width: 100%;
+    }
 `;
 
 const SearchInput = styled.input`
